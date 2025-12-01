@@ -11,7 +11,6 @@ L82"""
 
 MAX_VALUE: int = 100
 START_VALUE: int = 50
-TARGET: int = 0
 
 value: int = START_VALUE
 count: int = 0
@@ -22,4 +21,4 @@ for rotation in INPUT_DATA.split('\n'):
     value = (value + steps) % MAX_VALUE
     #print(value)
 
-print(f"\nOccurrences of {TARGET}: {count}")
+print(f"\nHits of 0: {count}")
