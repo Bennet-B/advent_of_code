@@ -22,3 +22,5 @@ for rotation in INPUT_DATA.split('\n'):
     #print(value)
 
 print(f"\nHits of 0: {count}")
+
+# personal solution: 6496
