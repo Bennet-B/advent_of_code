@@ -23,3 +23,5 @@ for rotation in INPUT_DATA.split('\n'):
     #print(value)
 
 print(f"\nOccurrences of {TARGET}: {count}")
+
+# personal solution: 1165
