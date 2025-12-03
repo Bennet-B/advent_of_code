@@ -10,7 +10,7 @@ sum: int = 0
 for bank in INPUT_DATA.split('\n'):
     last_idx: int = 0
     current_idx: int = 0
-    digits = [-1] * B_AMOUNT
+    digits: list[int] = [-1] * B_AMOUNT
     num: int = 0
     for i in range(B_AMOUNT):
         max_idx: int = i - B_AMOUNT + 1
