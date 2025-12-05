@@ -21,11 +21,11 @@ for range_str in INPUT_DATA.split(','):
     start, end = range_str.split('-')
     lower, upper = max(11, int(start)), int(end)
     for length in range(len(start), len(end) + 1):
-        checked = set()
+        checked: set[int] = set()
         for x, y in divisor_pairs(length):
             for invalidid in repeats(x, y):
                 if lower <= invalidid <= upper and invalidid not in checked:
-                    print(invalidid)
+                    #print(invalidid)
                     sum += invalidid
                     checked.add(invalidid)
 

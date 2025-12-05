@@ -1,4 +1,4 @@
-# TODO: use advanced method (see p5_p2 after optimization)
+# Note: In part 2 (see: d5_p2.py), I switched to a much faster approach for performance (by combining ranges rather than just brute force); that strategy could be applied here as well!
 
 INPUT_DATA: str = """3-5
 10-14
@@ -14,7 +14,7 @@ INPUT_DATA: str = """3-5
 
 fresh_ranges, available_ingredients = INPUT_DATA.split("\n\n")
 ingredients: list[int] = list(map(int, available_ingredients.split('\n')))
-mapped_ranges: list[(int, int)] = []
+mapped_ranges: list[tuple[int, int]] = []
 
 for fresh_range in fresh_ranges.split('\n'):
     lower, upper = map(int, fresh_range.split('-'))

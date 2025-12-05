@@ -1,5 +1,3 @@
-# TODO: optimize, basic first approch
-
 INPUT_DATA: str = """3-5
 10-14
 16-20
@@ -12,42 +10,40 @@ INPUT_DATA: str = """3-5
 17
 32"""
 
-mapped_ranges: list[(int, int)] = []
+mapped_ranges: list[tuple[int, int]] = []
 
 for fresh_range in INPUT_DATA.split("\n\n")[0].split('\n'):
     lower, upper = map(int, fresh_range.split('-'))
     mapped_ranges.append((lower, upper))
 
-print(mapped_ranges)
-
-new_ranges: list[(int, int)] = []
+new_ranges: list[tuple[int, int]] = []
 has_changes: bool = True
+
 while has_changes:
     has_changes = False
-    for range_x in mapped_ranges:
-        handled = False
-        for idx, mapped_range in enumerate(new_ranges):
-            if range_x[0] >= mapped_range[0] and range_x[0] <= mapped_range[1]:
-                handled = True
-                if(range_x[1] > mapped_range[1]):
-                    new_ranges[idx] = (mapped_range[0], range_x[1])
+    for current_range in mapped_ranges:
+        was_merged = False
+        for idx, existing_range in enumerate(new_ranges):
+            if current_range[0] >= existing_range[0] and current_range[0] <= existing_range[1]:
+                was_merged = True
+                if current_range[1] > existing_range[1]:
+                    new_ranges[idx] = (existing_range[0], current_range[1])
                 break
-            if range_x[1] >= mapped_range[0] and range_x[1] <= mapped_range[1]:
-                handled = True
-                new_ranges[idx] = (range_x[0], mapped_range[1])
+            elif current_range[1] >= existing_range[0] and current_range[1] <= existing_range[1]:
+                was_merged = True
+                new_ranges[idx] = (current_range[0], existing_range[1])
                 break
-            if mapped_range[0] > range_x[0] and mapped_range[1] < range_x[1]:
-                handled = True
-                new_ranges[idx] = (range_x[0], range_x[1])
+            elif existing_range[0] > current_range[0] and existing_range[1] < current_range[1]:
+                was_merged = True
+                new_ranges[idx] = (current_range[0], current_range[1])
                 break
-        if not handled:
-            new_ranges.append(range_x)
-        has_changes = has_changes or handled
+                
+        if not was_merged:
+            new_ranges.append(current_range)
+        has_changes = has_changes or was_merged
+        
     mapped_ranges = new_ranges
     new_ranges = []
-
-print()
-print(mapped_ranges)
 
 count: int = 0
 

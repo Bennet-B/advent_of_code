@@ -21,13 +21,13 @@ for x, line in enumerate(INPUT_DATA.split('\n')):
 board.insert(0, [False] * len(board[1]))
 board.append([False] * len(board[1]))
 
-for x in range(len(board)):
-    print()
-    for y in range(len(board[0])):
-        if(board[x][y]):
-            print('@', end='')
-        else:
-            print('_', end='')
+# for x in range(len(board)):
+#     print()
+#     for y in range(len(board[0])):
+#         if(board[x][y]):
+#             print('@', end='')
+#         else:
+#             print('_', end='')
 
 for x in range(1, len(board) - 1):
     for y in range(1, len(board[0]) - 1):

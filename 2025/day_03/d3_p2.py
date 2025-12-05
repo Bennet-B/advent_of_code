@@ -13,7 +13,7 @@ for bank in INPUT_DATA.split('\n'):
     digits: list[int] = [-1] * B_AMOUNT
     num: int = 0
     for i in range(B_AMOUNT):
-        max_idx: int = i - B_AMOUNT + 1
+        max_idx: int | None = i - B_AMOUNT + 1
         max_idx = max_idx if max_idx != 0 else None
         for idx, c in enumerate(bank[last_idx:max_idx]):
             digit: int = int(c)

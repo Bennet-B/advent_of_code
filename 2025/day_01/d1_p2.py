@@ -10,9 +10,8 @@ R14
 L82"""
 
 MAX_VALUE: int = 100
-START_VALUE: int = 50
 
-value: int = START_VALUE
+value: int = 50
 count: int = 0
 
 for rotation in INPUT_DATA.split('\n'):
