@@ -6,8 +6,6 @@ INPUT_DATA: LiteralString = """123 328  51 64
 *   +   *   +  """
 
 lines: list[LiteralString] = INPUT_DATA.split('\n')
-numbers: list[list[int]] = []
-
 total_sum: int = 0
 is_add: bool = True # immediately overridden in loop
 product: int = 1
