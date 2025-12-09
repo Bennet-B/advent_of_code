@@ -25,30 +25,23 @@ JUNCTION_AMOUNT: int = 10
 vectors: list[tuple[int, int, int]] = []
 
 for line in INPUT_DATA.split('\n'):
-    vectors.append(tuple(map(int, line.split(','))))
+    x, y, z = map(int, line.split(','))
+    vectors.append((x, y, z))
 
-# index of nearest vector, distance
-vec_map: list[int, int, float] = []
+vec_map: list[tuple[int, int, float]] = []
 
 for idx_x, vec_x in enumerate(vectors):
-    print(len(vec_map))
     for idx_y, vec_y in enumerate(vectors[idx_x + 1:]):
         distance: int = ((vec_x[0] - vec_y[0])**2 + (vec_x[1] - vec_y[1])**2 + (vec_x[2] - vec_y[2])**2)**0.5
         vec_map.append((idx_x, idx_x + 1 + idx_y, distance))
 
-print(f"Total vectors: {len(vectors)}")
-
 circuits: list[set[int]] = []
 for m in sorted(vec_map, key=lambda t: t[2])[:JUNCTION_AMOUNT]:
-    print(vectors[m[0]], vectors[m[1]], m[2])
     circuits.append(set([m[0], m[1]]))
-
-print(f"Initial circuits: {circuits}")
 
 new_circuits: list[set[int]] = []
 has_changes: bool = True
 while has_changes:
-    print("--- New iteration ---")
     has_changes = False
     for current_circuit in circuits:
         was_merged: bool = False
@@ -69,9 +62,6 @@ total: int = 1
  
 for size in sorted(circuits, key=lambda s: len(s), reverse=True)[:3]:
     total *= len(size)
-    print(len(size))
- 
-print(circuits)
  
 print(f"\nTotal: {total}")
  
