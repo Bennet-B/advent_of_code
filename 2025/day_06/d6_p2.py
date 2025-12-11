@@ -1,11 +1,10 @@
-from typing import LiteralString
+# INPUT_DATA: str = """123 328  51 64 
+#  45 64  387 23 
+#   6 98  215 314
+# *   +   *   +  """
+with open("2025/day_06/d6_input.txt") as f: INPUT_DATA: str = f.read()
 
-INPUT_DATA: LiteralString = """123 328  51 64 
- 45 64  387 23 
-  6 98  215 314
-*   +   *   +  """
-
-lines: list[LiteralString] = INPUT_DATA.split('\n')
+lines: list[str] = INPUT_DATA.split('\n')
 total_sum: int = 0
 is_add: bool = True # immediately overridden in loop
 product: int = 1
@@ -25,7 +24,7 @@ for c in lines[-1].split(' '):
             total_sum += product
             product = 1
     
-    num_str: LiteralString = ''
+    num_str: str = ''
     for lidx in range(len(lines) - 1):
         if lines[lidx][cidx] != ' ':
             num_str += lines[lidx][cidx]

@@ -1,14 +1,14 @@
-INPUT_DATA: str = """7,1
-11,1
-11,7
-9,7
-9,5
-2,5
-2,3
-7,3"""
+# INPUT_DATA: str = """7,1
+# 11,1
+# 11,7
+# 9,7
+# 9,5
+# 2,5
+# 2,3
+# 7,3"""
+with open("2025/day_09/d9_input.txt") as f: INPUT_DATA: str = f.read()
 
 points: list[tuple[int, int]] = []
-
 for line in INPUT_DATA.split('\n'):
     x, y = map(int, line.split(','))
     points.append((x, y))

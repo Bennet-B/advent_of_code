@@ -1,14 +1,14 @@
-INPUT_DATA: str = """L68
-L30
-R48
-L5
-R60
-L55
-L1
-L99
-R14
-L82"""
-
+# INPUT_DATA: str = """L68
+# L30
+# R48
+# L5
+# R60
+# L55
+# L1
+# L99
+# R14
+# L82"""
+with open("2025/day_01/d1_input.txt") as f: INPUT_DATA: str = f.read()
 MAX_VALUE: int = 100
 TARGET: int = 0
 

@@ -1,10 +1,10 @@
-INPUT_DATA: str = """987654321111111
-811111111111119
-234234234234278
-818181911112111"""
+# INPUT_DATA: str = """987654321111111
+# 811111111111119
+# 234234234234278
+# 818181911112111"""
+with open("2025/day_03/d3_input.txt") as f: INPUT_DATA: str = f.read()
 
 sum: int = 0
-
 for bank in INPUT_DATA.split('\n'):
     first_idx: int = 0
     first_digit: int = int(bank[0])

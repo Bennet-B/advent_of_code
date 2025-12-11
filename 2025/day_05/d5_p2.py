@@ -1,14 +1,15 @@
-INPUT_DATA: str = """3-5
-10-14
-16-20
-12-18
+# INPUT_DATA: str = """3-5
+# 10-14
+# 16-20
+# 12-18
 
-1
-5
-8
-11
-17
-32"""
+# 1
+# 5
+# 8
+# 11
+# 17
+# 32"""
+with open("2025/day_05/d5_input.txt") as f: INPUT_DATA: str = f.read()
 
 mapped_ranges: list[tuple[int, int]] = []
 
